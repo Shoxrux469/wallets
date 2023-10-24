@@ -24,7 +24,7 @@ form.onsubmit = (e) => {
     method: "post",
     body: JSON.stringify(users),
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json",   
     },
   }).then((res) => {
     console.log(res);
