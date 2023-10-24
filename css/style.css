@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.blue {
+  color: blue;
+}
+
+section {
+  background: #f0f0f0;
+}
+section header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  height: 70px;
+  margin: 0 auto;
+}
+section header nav {
+  display: flex;
+  gap: 21px;
+}
+section header nav a {
+  text-decoration: none;
+  color: black;
+}
+section header div {
+  display: flex;
+  gap: 19px;
+}
+section header div button {
+  border: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 71px;
+  margin: 0 auto;
+  width: 90%;
+}
+main .title {
+  margin-top: 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+main .title h1 {
+  font-size: 48px;
+  font-weight: 700;
+}
+main .title p {
+  font-size: 18px;
+}
+main .my_wallets {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 21px;
+}
+main .my_wallets h2 {
+  font-size: 24px;
+}
+main .my_wallets div {
+  width: 282px;
+  height: 160px;
+  padding: 19px 23px;
+  border-radius: 15px;
+  background: linear-gradient(84deg, #d7816a 2.27%, #bd4f6c 92.26%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
+}
+main .my_wallets div p {
+  font-size: 24px;
+}
+main .my_wallets div span {
+  font-size: 14px;
+}
+main .my_wallets a {
+  color: blue;
+}
+main .transactions {
+  display: flex;
+  flex-direction: column;
+}
+main .transactions h2 {
+  font-size: 24px;
+  margin-bottom: 32px;
+}
+main .transactions table td {
+  padding-block: 12px;
+}
+main .transactions a {
+  color: blue;
+  margin-top: 9px;
+}

@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.come_in_acc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  height: 100vh;
+}
+.come_in_acc h1 {
+  font-size: 46px;
+  font-weight: 700;
+}
+.come_in_acc form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: fit-content;
+}
+.come_in_acc form input {
+  width: 400px;
+  font-size: 16px;
+  padding-left: 10px;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid #000;
+  background: #fff;
+}
+.come_in_acc form button {
+  width: 400px;
+  height: 50px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 0;
+  color: #fff;
+  background: #0047ff;
+}
+.come_in_acc p {
+  text-align: center;
+}
+.come_in_acc p a {
+  color: blue;
+  text-decoration: none;
+  font-weight: 700;
+}
