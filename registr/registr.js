@@ -18,73 +18,37 @@ form.onsubmit = (e) => {
     users[key] = value;
   });
 
-  axios.get(base_url + '/users?email=' + users.email)
-    .then(res => {
-      if (res.status !== 200 && res.status !== 201) {
-        return
-      } else {
-        let error = false;
-  
-        inps.forEach((inp) => {
-          if (inp.value.length === 0) {
-            inp.classList.add("error");
-            error = true;
-          } else {
-            inp.classList.remove("error");
-          }
-        });
-        
+  axios.get(base_url + "/users?email=" + users.email)
+    .then((res) => {
 
-        if (error === false) {
-          if (res.data.length > 0) {
-            console.log('User already exists');
-            console.log(res);
-            return
-          } else {
-            document.location.href = `./index.html`;
-            form.reset();
-          }
+    if (res.status !== 200 && res.status !== 201) {
+      return;
+    } else {
+      let error = false;
+
+      inps.forEach((inp) => {
+        if (inp.value.length === 0) {
+          inp.classList.add("error");
+          error = true;
         } else {
-            return
+          inp.classList.remove("error");
         }
+      });
+
+      if (error === false) {
+        if (res.data.length > 0) {
+          console.log("User already exists");
+          return;
+        } else {
+          axios.post(base_url + "/users", users)
+            .then((res) => {
+            document.location.href = `/?=${res.data.id}`;
+            form.reset(); 
+          });
+        }
+      } else {
+        return;
       }
-
-      axios.post(base_url + '/users', users)
-        .then(res => console.log(res))
-    })
-
-  // fetch(base_url + '/users?email=' + users.email)
-  //   .then(res => {
-  //     if(res.status !== 200 && res.status !== 201) return 
-  //     if(length.data.length > 0) {
-  //       alert('User already exists')
-  //       return
-  //     }
-  //   })
-    
-  // fetch(base_url + "/users", {
-  //   method: "post",
-  //   body: JSON.stringify(users),
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  // }).then((res) => {
-    // if (res.status === 200 || res.status === 201) {
-    //   let error = false;
-
-    //   inps.forEach((inp) => {
-    //     if (inp.value.length === 0) {
-    //       inp.classList.add("error");
-    //       error = true;
-    //     } else {
-    //       inp.classList.remove("error");
-    //     }
-    //   });
-
-    //   if (error === false) {
-    //     document.location.href = `./index.html`;
-    //     form.reset();
-    //   }
-    // }
-  // });
+    }
+  });
 };

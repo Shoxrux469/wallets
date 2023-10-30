@@ -6,7 +6,7 @@
 .blue {
   color: blue;
 }
-section {
+.header_box {
   background: #f0f0f0;
   header {
     display: flex;
@@ -55,30 +55,36 @@ main {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    width: 100%;
     justify-content: space-between;
     gap: 21px;
     h2 {
       font-size: 24px;
     }
-    div {
-      width: 282px;
-      height: 160px;
-      padding: 19px 23px;
-      border-radius: 15px;
-      background: linear-gradient(84deg, #d7816a 2.27%, #bd4f6c 92.26%);
+    .wallets {
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      color: #fff;
-      p {
-        font-size: 24px;
+      gap: 10px;
+      flex-wrap: wrap;
+      div {
+        width: 282px;
+        height: 160px;
+        padding: 19px 23px;
+        border-radius: 15px;
+        background: linear-gradient(84deg, #d7816a 2.27%, #bd4f6c 92.26%);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: #fff;
+        p {
+          font-size: 24px;
+        }
+        span {
+          font-size: 14px;
+        }
       }
-      span {
-        font-size: 14px;
+      a {
+        color: blue;
       }
-    }
-    a {
-      color: blue;
     }
   }
   .transactions {
@@ -98,4 +104,30 @@ main {
       margin-top: 9px;
     }
   }
+}
+
+.bg_one {
+  background: linear-gradient(84deg, #d7816a 2.27%, #bd4f6c 92.26%);
+}
+
+.bg_two {
+  background: linear-gradient(84deg, #5f0a87 2.27%, #a4508b 92.26%);
+}
+
+.bg_three {
+  background: linear-gradient(84deg, #20bf55 2.27%, #01baef 92.26%);
+}
+
+.bg_four {
+  background: linear-gradient(84deg, #380036 2.27%, #0cbaba 92.26%);
+}
+.add_button {
+  width: 378px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #0047ff;
+  border: 0;
+  font-size: 16px;
+  color: white;
 }

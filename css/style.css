@@ -8,10 +8,10 @@
   color: blue;
 }
 
-section {
+.header_box {
   background: #f0f0f0;
 }
-section header {
+.header_box header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,19 +19,19 @@ section header {
   height: 70px;
   margin: 0 auto;
 }
-section header nav {
+.header_box header nav {
   display: flex;
   gap: 21px;
 }
-section header nav a {
+.header_box header nav a {
   text-decoration: none;
   color: black;
 }
-section header div {
+.header_box header div {
   display: flex;
   gap: 19px;
 }
-section header div button {
+.header_box header div button {
   border: 0;
 }
 
@@ -59,13 +59,19 @@ main .my_wallets {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  width: 100%;
   justify-content: space-between;
   gap: 21px;
 }
 main .my_wallets h2 {
   font-size: 24px;
 }
-main .my_wallets div {
+main .my_wallets .wallets {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+main .my_wallets .wallets div {
   width: 282px;
   height: 160px;
   padding: 19px 23px;
@@ -76,13 +82,13 @@ main .my_wallets div {
   justify-content: space-between;
   color: #fff;
 }
-main .my_wallets div p {
+main .my_wallets .wallets div p {
   font-size: 24px;
 }
-main .my_wallets div span {
+main .my_wallets .wallets div span {
   font-size: 14px;
 }
-main .my_wallets a {
+main .my_wallets .wallets a {
   color: blue;
 }
 main .transactions {
@@ -99,4 +105,31 @@ main .transactions table td {
 main .transactions a {
   color: blue;
   margin-top: 9px;
+}
+
+.bg_one {
+  background: linear-gradient(84deg, #d7816a 2.27%, #bd4f6c 92.26%);
+}
+
+.bg_two {
+  background: linear-gradient(84deg, #5f0a87 2.27%, #a4508b 92.26%);
+}
+
+.bg_three {
+  background: linear-gradient(84deg, #20bf55 2.27%, #01baef 92.26%);
+}
+
+.bg_four {
+  background: linear-gradient(84deg, #380036 2.27%, #0cbaba 92.26%);
+}
+
+.add_button {
+  width: 378px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #0047ff;
+  border: 0;
+  font-size: 16px;
+  color: white;
 }

@@ -12,8 +12,17 @@ form.onsubmit = (e) => {
     .then((res) => res.json())
     .then((res) => {
       let item = res.find((item) => email_inp.value == item.email);
+      // console.log(item);
+      if(item === undefined) {
+        email_inp.classList.add('error')
+      } else {
+        email_inp.classList.remove('error')
+      }
       if (password_inp.value === item.password) {
-        document.location.href = `./index.html?=${item.id}`;
+        document.location.href = `/?=${item.id}`;
+        password_inp.classList.remove('error')
+      } else {
+        password_inp.classList.add('error')
       }
     });
 };

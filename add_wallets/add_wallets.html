@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/add_wallets.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <main>
+            <div class="title">
+                <h1>Мои кошельки</h1>
+                <p class="user_email blue"></p>
+            </div>
+            <div class="my_wallets">
+                <div class="wallets">
+                </div>
+            </div>
+            <button class="add_button">Добавить</button>
+        </main>
+    </div>
+    <div class="add_wallet">
+        <form class="add_form" name="add_form">
+            <h1>Добавить кошелек</h1>
+            <input class="type" type="text" name="type" id="" placeholder="Имя">
+            <input class="currency" type="text" name="currency" id="" placeholder="Валюта">
+            <button type="submit" class="submit_btn add_btn">Добавить</button>
+            <button type="button" class="close_add">Х</button>
+        </form>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="/header.js"></script>
+    <script type="module" src="./script.js"></script>
+</body>
+
+</html>
