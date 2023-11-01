@@ -1,4 +1,3 @@
-let email = document.querySelectorAll(".user_email");
 let wallets = document.querySelector(".wallets");
 let type = document.querySelector(".type");
 let currency = document.querySelector(".currency");
@@ -7,9 +6,39 @@ let close_add = document.querySelector(".close_add");
 let add_button = document.querySelector(".add_button");
 let add_wallet = document.querySelector(".add_wallet");
 let form = document.forms.add_form;
+let select = document.querySelector('select')
 let base_url = "http://localhost:8080";
 let id = location.search.split("=").at(1);
 console.log(id);
+
+const getSymbols = async () => {
+  const res = JSON.parse(localStorage.getItem('symbols'))
+
+  if(res) {
+      return res
+  }
+
+  try {
+      const res = await axios.get("https://api.apilayer.com/fixer/symbols", {
+          headers: {
+              apikey: import.meta.env.VITE_API_KEY
+          }
+      })
+      
+      localStorage.setItem('symbols', JSON.stringify(res.data.symbols))
+      return res.data.symbols
+  } catch(e) {
+      console.log('Error: ', e);
+  }
+}
+getSymbols()
+  .then(res => {
+    for(let key in res) {
+      let option = new Option(`${key} - ${res[key]}`, key)
+
+      select.append(option)
+    }
+  })
 
 add_button.onclick = () => {
   add_wallet.classList.add("show", "fade");
@@ -17,24 +46,23 @@ add_button.onclick = () => {
 close_add.onclick = () => {
   add_wallet.classList.remove("show", "fade");
 };
-// updateUser();
+
 function updateWallets() {
-  axios.get(base_url + "/wallets").then((res) => {
-    reload_wallets(res.data);
-    // console.log(res);
-    // user_email
+  axios.get(base_url + "/wallets?user_id=" + id)
+  .then((res) => { 
+    reload_wallets(res.data, wallets);
   });
 }
-
+  
 updateWallets();
 
 function updateUser() {
-  axios.get(base_url + "/users")
+   axios.get(base_url + "/users")
     .then((res) => {
-    res.data.forEach((item) => {
-      
-      if (item.id == id) {
+    res.data.forEach((item) => { 
 
+      if (item.id == id) {
+        
         user_email.forEach((user) => {
           user.innerHTML = item.email;
         });
@@ -45,19 +73,23 @@ function updateUser() {
 
 updateUser();
 
+
 form.onsubmit = (e) => {
   e.preventDefault();
 
-  let users = {};
+  let wallet = {
+    user_id: id
+  };
 
   let fm = new FormData(form);
 
   fm.forEach((value, key) => {
-    users[key] = value;
+    wallet[key] = value;
   });
 
-  axios.post(base_url + "/wallets", users).then((res) => {
-    console.log(res, users);
+  axios.post(base_url + "/wallets", wallet)
+    .then((res) => {
+    console.log(res, wallet);
     if (res.status == 200 || res.status == 201) {
       // console.log(res);
       updateWallets();
@@ -68,7 +100,6 @@ form.onsubmit = (e) => {
 
 function reload_wallets(arr) {
   wallets.innerHTML = "";
-
   let wallet_color = 1;
 
   for (let item of arr) {
@@ -98,8 +129,5 @@ function reload_wallets(arr) {
 
     wallets.append(div);
     div.append(visa, currency);
-    email.forEach((email) => {
-      email.innerHTML = arr.email;
-    });
   }
 }

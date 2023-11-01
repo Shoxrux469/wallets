@@ -3,17 +3,17 @@ let id = location.search.split("=").at(1);
 let base_url = "http://localhost:8080";
 let body = document.body
 
-// console.log(id);
   fetch(base_url + "/users/" + id)
     .then((res) => res.json())
     .then((res) => {
       p.innerHTML = res.email
       main_page.href = `/?=${res.id}`
       my_wallets.href = `./add_wallets/add_wallets.html?=${res.id}`;
+      my_transactions.href = `./add_transactions/add_transactions.html?=${res.id}`
     });
 
   let header = document.createElement("header");
-  let header_box = document.createElement('div')
+  let header_box = document.createElement("div");
   let nav = document.createElement("nav");
   let main_page = document.createElement("a");
   let my_wallets = document.createElement("a");

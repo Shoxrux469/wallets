@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.add_wallet {
+.add_transactions {
   position: fixed;
   top: 0;
   left: 0;
@@ -15,8 +15,8 @@
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.5);
 }
-.add_wallet form {
-  padding: 56px 97px;
+.add_transactions form {
+  padding: 55px 80px;
   position: absolute;
   z-index: 1100;
   top: 50%;
@@ -28,21 +28,25 @@
   gap: 10px;
   border-radius: 10px;
 }
-.add_wallet form h1 {
+.add_transactions form h1 {
   color: #000;
   font-size: 48px;
   font-weight: 700;
 }
-.add_wallet form input, .add_wallet form select {
-  width: 378px;
-  height: 46px;
-  font-size: 20px;
+.add_transactions form input {
+  margin: 0 auto;
+  width: 408px;
+  height: 50px;
+  font-size: 24px;
   padding-left: 8px;
   outline: unset;
   border: 1px solid black;
   border-radius: 8px;
 }
-.add_wallet form .close_add {
+.add_transactions form input:nth-child(2) {
+  margin-top: 16px;
+}
+.add_transactions form .close_add {
   width: fit-content;
   border: 0;
   position: absolute;
@@ -52,8 +56,9 @@
 }
 
 .submit_btn {
-  width: 378px;
-  height: 46px;
+  width: 408px;
+  margin: 0 auto;
+  height: 50px;
   background: #0047ff;
   color: #fff;
   border: 0;

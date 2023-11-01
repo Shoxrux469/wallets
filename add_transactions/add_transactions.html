@@ -1,22 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./add_transactions.scss">
+    <link rel="stylesheet" href="/css/add_transactions.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
-    
+
     <div class="container">
         <main>
             <div class="title">
                 <h1>Мои транзакции</h1>
-                <p>alexadams@google.com</p>
+                <p></p>
             </div>
+            <table>
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Отправлено с кошелька</td>
+                        <td>Категория</td>
+                        <td>Сумма транзации</td>
+                        <td>Когда</td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <button class="add_button">Добавить</button>
         </main>
     </div>
+    <div class="add_transactions">
+        <form class="add_form" name="add_form">
+            <h1>Добавить транзакцию</h1>
+            <input class="type" type="text" name="type" placeholder="Из кошелька">
+            <input class="sum" type="number" name="sum" placeholder="Сумма">
+            <input class="category" type="text" name="category" placeholder="Категория">
+            <button type="submit" class="submit_btn add_btn">Добавить</button>
+            <button type="button" class="close_add">Х</button>
+        </form>
+    </div>
 
-    <script src="./script.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="/header.js"></script>
+    <script type="module" src="./script.js"></script>
 </body>
+
 </html>

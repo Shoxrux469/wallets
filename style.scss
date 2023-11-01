@@ -51,6 +51,22 @@ main {
       font-size: 18px;
     }
   }
+
+  table{
+    thead{
+      td{
+        color: #B9C0D1;
+        font-size: 18px;
+      }
+    }
+    tbody{
+      td{
+        padding-block: 8px;
+        font-size: 18px;
+      }
+    }
+  }
+
   .my_wallets {
     display: flex;
     flex-direction: column;
@@ -130,4 +146,8 @@ main {
   border: 0;
   font-size: 16px;
   color: white;
+}
+
+.currency {
+  text-transform: uppercase;
 }
